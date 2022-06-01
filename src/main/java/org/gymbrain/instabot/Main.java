@@ -2,6 +2,7 @@ package org.gymbrain.instabot;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.gymbrain.instabot.configuration.AccountSetup;
 import org.gymbrain.instabot.configuration.WebDriverSetup;
 
 import java.text.MessageFormat;
@@ -22,6 +23,7 @@ public class Main {
     private static void loadConfiguration() {
         logger.trace("load properties");
         loadWebDriverProperties();
+        loadAccountProperties();
     }
 
     private static void loadWebDriverProperties() {
@@ -29,6 +31,15 @@ public class Main {
         WebDriverSetup webDriver = new WebDriverSetup.WebDriverSetupBuilder("/home/mohammad/Documents/Project/insta-bot/chromedriver")
                 .build();
         Properties properties = webDriver.getProperties();
+        System.setProperties(properties);
+        printProperties(properties);
+    }
+
+    private static void loadAccountProperties() {
+        logger.trace("load account properties");
+        AccountSetup accountSetup = new AccountSetup.AccountSetupBuilder("jalili_dev", "Mo.9063069090").build();
+        Properties properties = accountSetup.getProperties();
+        System.setProperties(properties);
         printProperties(properties);
     }
 
