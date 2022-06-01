@@ -1,4 +1,6 @@
-package org.gymbrain.instabot.configuration;
+package org.gymbrain.instabot.configuration.environment.writer;
+
+import org.gymbrain.instabot.configuration.environment.WebDriverConstants;
 
 import java.util.Properties;
 
@@ -11,7 +13,7 @@ public class WebDriverSetup {
 
     public Properties getProperties() {
         Properties properties = new Properties();
-        properties.setProperty("webdriver.chrome.driver", chromeDriver);
+        properties.setProperty(WebDriverConstants.CHROME_DRIVER_URL, chromeDriver);
         return properties;
     }
 

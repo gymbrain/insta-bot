@@ -1,4 +1,4 @@
-package org.gymbrain.instabot.configuration;
+package org.gymbrain.instabot.configuration.environment.writer;
 
 import java.util.Properties;
 
